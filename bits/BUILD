@@ -13,3 +13,9 @@ cc_binary(
     deps = ["//third_party/benchmark"],
     linkopts = ["-lm"],
 )
+
+cc_test(
+    name = "powers_of_two_test",
+    srcs = ["powers_of_two_test.cc"],
+    deps = ["//third_party/googletest:gtest_main"],
+)
