@@ -1,3 +1,6 @@
 [submodule "third_party/gflags/upstream"]
 	path = third_party/gflags/upstream
 	url = https://github.com/gflags/gflags
+[submodule "third_party/googletest/upstream"]
+	path = third_party/googletest/upstream
+	url = https://github.com/google/googletest
