@@ -1,5 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
+test_suite(
+    name = "all_tests",
+)
+
 cc_binary(
     name = "parity_bench",
     srcs = ["parity_bench.cc"],
