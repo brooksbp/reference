@@ -8,6 +8,7 @@ cc_library(
     name = "spin_lock",
     hdrs = [
         "tas.h",
+        "ticket.h",
     ],
     linkopts = [
         "-lm",
