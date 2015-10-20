@@ -28,8 +28,8 @@ void ticket_lock_acquire_bo(struct ticket_lock *lock, int backoff) {
     int ns = __atomic_load_n(&lock->now_serving, __ATOMIC_RELAXED);
     if (ns == my_ticket)
       break;
-    for (volatile int i = 0; i < (my_ticket - ns) * backoff; ++i)
-      ;  // spin
+    for (int i = 0; i < (my_ticket - ns) * backoff; ++i)
+      asm("");  // spin
   }
   __atomic_thread_fence(__ATOMIC_ACQUIRE);
 }

@@ -16,8 +16,8 @@ cc_library(
 )
 
 cc_binary(
-    name = "tas_bench",
-    srcs = ["tas_bench.cc"],
+    name = "spin_lock_bench",
+    srcs = ["spin_lock_bench.cc"],
     deps = [
         ":spin_lock",
         "//third_party/benchmark"
