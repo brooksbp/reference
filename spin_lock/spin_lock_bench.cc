@@ -50,9 +50,5 @@ BENCHMARK(BM_TicketLockBackoff)->Arg(1<<5)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<6)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<7)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<8)->ThreadPerCpu();
-BENCHMARK(BM_TicketLockBackoff)->Arg(1<<9)->ThreadPerCpu();
-BENCHMARK(BM_TicketLockBackoff)->Arg(1<<10)->ThreadPerCpu();
-BENCHMARK(BM_TicketLockBackoff)->Arg(1<<11)->ThreadPerCpu();
-BENCHMARK(BM_TicketLockBackoff)->Arg(1<<12)->ThreadPerCpu();
 
 BENCHMARK_MAIN();
