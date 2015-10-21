@@ -1,8 +1,8 @@
 #include "benchmark/benchmark.h"
 
-#include "spin_lock/mcs.h"
-#include "spin_lock/tas.h"
-#include "spin_lock/ticket.h"
+#include "synchronization/mcs.h"
+#include "synchronization/tas.h"
+#include "synchronization/ticket.h"
 
 const int kNumCriticalSections = 10000000;
 
