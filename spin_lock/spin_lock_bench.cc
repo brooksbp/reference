@@ -1,5 +1,6 @@
 #include "benchmark/benchmark.h"
 
+#include "spin_lock/mcs.h"
 #include "spin_lock/tas.h"
 #include "spin_lock/ticket.h"
 
@@ -50,5 +51,19 @@ BENCHMARK(BM_TicketLockBackoff)->Arg(1<<5)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<6)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<7)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<8)->ThreadPerCpu();
+
+static struct mcs_lock m1;
+
+static void BM_MCS(benchmark::State& state) {
+  struct qnode p;
+  while (state.KeepRunning()) {
+    for (int i = 0; i < kNumCriticalSections; ++i) {
+      mcs_lock_acquire(&m1, &p);
+      mcs_lock_release(&m1, &p);
+    }
+  }
+  state.SetItemsProcessed(state.iterations() * kNumCriticalSections);
+}
+BENCHMARK(BM_MCS)->ThreadPerCpu();
 
 BENCHMARK_MAIN();

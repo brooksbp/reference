@@ -7,6 +7,7 @@ test_suite(
 cc_library(
     name = "spin_lock",
     hdrs = [
+        "mcs.h",
         "tas.h",
         "ticket.h",
     ],
