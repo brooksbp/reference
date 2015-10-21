@@ -1,5 +1,12 @@
 package(default_visibility = ["//visibility:public"])
 
+load("/tools/build_rules/javadoc", "javadoc")
+
+javadoc(
+    name = "algs4-javadoc",
+    srcs = glob(["src/**/*.java"]),
+)
+
 java_library(
     name = "algs4",
     srcs = glob(["src/**/*.java"]),
