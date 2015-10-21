@@ -1,5 +1,5 @@
-#ifndef SPIN_LOCK_TAS_H
-#define SPIN_LOCK_TAS_H
+#ifndef SYNCHRONIZATION_TAS_H
+#define SYNCHRONIZATION_TAS_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -27,4 +27,4 @@ void tas_lock_release(struct tas_lock *lock) {
 }
 #endif
 
-#endif  // SPIN_LOCK_TAS_H
+#endif  // SYNCHRONIZATION_TAS_H

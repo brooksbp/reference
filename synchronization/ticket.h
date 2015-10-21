@@ -1,5 +1,5 @@
-#ifndef SPIN_LOCK_TICKET_H
-#define SPIN_LOCK_TICKET_H
+#ifndef SYNCHRONIZATION_TICKET_H
+#define SYNCHRONIZATION_TICKET_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,4 +38,4 @@ void ticket_lock_acquire_bo(struct ticket_lock *lock, int backoff) {
 }
 #endif
 
-#endif  // SPIN_LOCK_TICKET_H
+#endif  // SYNCHRONIZATION_TICKET_H

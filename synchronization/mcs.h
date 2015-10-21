@@ -1,5 +1,5 @@
-#ifndef SPIN_LOCK_MCS_H
-#define SPIN_LOCK_MCS_H
+#ifndef SYNCHRONIZATION_MCS_H
+#define SYNCHRONIZATION_MCS_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -42,4 +42,4 @@ static inline void mcs_lock_release(struct mcs_lock *lock, struct qnode *p) {
 }
 #endif
 
-#endif  // SPIN_LOCK_MCS_H
+#endif  // SYNCHRONIZATION_MCS_H
