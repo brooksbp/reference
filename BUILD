@@ -1,8 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
-    name = "common",
+    name = "top",
     hdrs = [
-        "common.h",
+        "compiler.h",
+        "types.h",
     ],
 )

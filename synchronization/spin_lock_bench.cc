@@ -1,6 +1,6 @@
 #include "benchmark/benchmark.h"
 
-#include "common/common.h"
+#include "uarch/cache.h"
 
 #include "synchronization/mcs.h"
 #include "synchronization/tas.h"
@@ -8,7 +8,7 @@
 
 const int kNumCriticalSections = 10000000;
 
-static struct tas_lock f ALIGNED_CACHE_LINE;
+static struct tas_lock f __cacheline_aligned;
 
 static void BM_TAS(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -21,7 +21,7 @@ static void BM_TAS(benchmark::State& state) {
 }
 BENCHMARK(BM_TAS)->ThreadPerCpu();
 
-static struct ticket_lock t1 ALIGNED_CACHE_LINE;
+static struct ticket_lock t1 __cacheline_aligned;
 
 static void BM_TicketLock(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -34,7 +34,7 @@ static void BM_TicketLock(benchmark::State& state) {
 }
 BENCHMARK(BM_TicketLock)->ThreadPerCpu();
 
-static struct ticket_lock t2 ALIGNED_CACHE_LINE;
+static struct ticket_lock t2 __cacheline_aligned;
 
 static void BM_TicketLockBackoff(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -54,10 +54,10 @@ BENCHMARK(BM_TicketLockBackoff)->Arg(1<<6)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<7)->ThreadPerCpu();
 BENCHMARK(BM_TicketLockBackoff)->Arg(1<<8)->ThreadPerCpu();
 
-static struct mcs_lock m1 ALIGNED_CACHE_LINE;
+static struct mcs_lock m1 __cacheline_aligned;
 
 static void BM_MCS(benchmark::State& state) {
-  struct qnode p ALIGNED_CACHE_LINE;
+  struct qnode p __cacheline_aligned;
   while (state.KeepRunning()) {
     for (int i = 0; i < kNumCriticalSections; ++i) {
       mcs_lock_acquire(&m1, &p);
