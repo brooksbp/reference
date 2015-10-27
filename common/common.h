@@ -62,12 +62,32 @@
 #define NOINLINE
 #endif
 
+#if defined(COMPILER_GCC)
+#define ALIGNED(size) __attribute__((aligned(size)))
+#else
+#define ALIGNED(size)
+#endif
+
+// TODO: ...
+#define ALIGNED_CACHE_LINE ALIGNED(64)
+
+#if defined(COMPILER_GCC)
+#define PACKED __attribute__((__packed__))
+#else
+#define PACKED
+#endif
+
 // Macro for hinting that an expression is likely to be false.
-#if !defined(UNLIKELY)
 #if defined(COMPILER_GCC)
 #define UNLIKELY(x) __builtin_expect(!!(x), 0)
 #else
 #define UNLIKELY
+#endif
+
+#if defined(COMPILER_GCC)
+#define TLS __thread
+#else
+#error Cannot define platform specific thread local storage
 #endif
 
 #endif  // COMMON_H

@@ -21,6 +21,7 @@ cc_binary(
     srcs = ["spin_lock_bench.cc"],
     deps = [
         ":spin_lock",
+        "//common",
         "//third_party/benchmark"
     ],
 )
