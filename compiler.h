@@ -67,6 +67,13 @@
 
 #define __visible       __attribute__((externally_visible))
 
+/*
+ * Force the toolchain to keep a symbol even with LTO.
+ *
+ * Useful for C functions called only from assembly or through special sections.
+ */
+#define __keep __attribute__((used)) __attribute__((externally_visible))
+
 #define asm_volatile_goto(x...) do { asm goto(x); asm (""); } while (0)
 
 #define __no_sanitize_address __attribute__((no_sanitize_address))
