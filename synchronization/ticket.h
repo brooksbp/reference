@@ -1,10 +1,6 @@
 #ifndef SYNCHRONIZATION_TICKET_H
 #define SYNCHRONIZATION_TICKET_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 struct ticket_lock {
   int next_ticket;
   int now_serving;
@@ -33,9 +29,5 @@ void ticket_lock_acquire_bo(struct ticket_lock *lock, int backoff) {
   }
   __atomic_thread_fence(__ATOMIC_ACQUIRE);
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif  // SYNCHRONIZATION_TICKET_H

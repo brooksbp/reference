@@ -1,10 +1,6 @@
 #ifndef SYNCHRONIZATION_MCS_H
 #define SYNCHRONIZATION_MCS_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 struct qnode {
   struct qnode *next;
   char waiting;
@@ -37,9 +33,5 @@ static inline void mcs_lock_release(struct mcs_lock *lock, struct qnode *p) {
   }
   __atomic_store_n(&succ->waiting, 0, __ATOMIC_RELAXED);
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif  // SYNCHRONIZATION_MCS_H

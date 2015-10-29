@@ -1,10 +1,6 @@
 #ifndef SYNCHRONIZATION_TAS_H
 #define SYNCHRONIZATION_TAS_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 struct tas_lock {
   char f;
 };
@@ -22,9 +18,5 @@ void tas_lock_acquire(struct tas_lock *lock) {
 void tas_lock_release(struct tas_lock *lock) {
   __atomic_store_n(&lock->f, 0, __ATOMIC_RELEASE);
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif  // SYNCHRONIZATION_TAS_H
