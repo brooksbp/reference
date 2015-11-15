@@ -1,7 +1,7 @@
-#ifndef PREFETCH_H
-#define PREFETCH_H
+#ifndef BASE_PREFETCH_H
+#define BASE_PREFETCH_H
 
-#include "uarch/cache.h"
+#include "base/cache.h"
 
 /*
  * prefetch(x) attempts to pre-emptively get the memory pointed to
@@ -13,11 +13,11 @@
 
 static inline void prefetch_range(void *addr, size_t len)
 {
-  char *cp;
-  char *end = addr + len;
+	char *cp;
+	char *end = addr + len;
 
-  for (cp = addr; cp < end; cp += L1_CACHE_BYTES)
-    prefetch(cp);
+	for (cp = addr; cp < end; cp += L1_CACHE_BYTES)
+		prefetch(cp);
 }
 
-#endif  // PREFETCH_H
+#endif /* BASE_PREFETCH_H */

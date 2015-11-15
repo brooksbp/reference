@@ -20,6 +20,7 @@ cc_test(
     name = "parity_test",
     srcs = ["parity_test.cc"],
     deps = [
+        ":bits",
         "//third_party/googletest:gtest_main"
     ],
 )

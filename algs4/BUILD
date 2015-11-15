@@ -29,7 +29,7 @@ java_test(
     ],
 )
 
-load("/tools/build_rules/javadoc", "javadoc")
+load("/build_tools/javadoc", "javadoc")
 
 javadoc(
     name = "algs4-javadoc",

@@ -1,6 +1,6 @@
 #include "benchmark/benchmark.h"
 
-#include "bits/parity.h"
+#include "base/bits/parity.h"
 
 static volatile int x = 0xF0F0F0F0;
 

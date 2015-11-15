@@ -1,5 +1,5 @@
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef BASE_TYPES_H
+#define BASE_TYPES_H
 
 #include <limits.h>
 #include <stddef.h>
@@ -10,4 +10,4 @@
 
 typedef _Bool bool;
 
-#endif  // TYPES_H
+#endif /* BASE_TYPES_H */

@@ -6,7 +6,7 @@ test_suite(
 
 cc_library(
     name = "spin_lock",
-    hdrs = [
+    srcs = [
         "mcs.h",
         "tas.h",
         "ticket.h",
@@ -21,7 +21,7 @@ cc_binary(
     srcs = ["spin_lock_bench.cc"],
     deps = [
         ":spin_lock",
-        "//uarch",
+        "//base",
         "//third_party/benchmark"
     ],
 )

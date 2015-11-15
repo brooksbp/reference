@@ -6,6 +6,7 @@ cc_library(
     srcs = glob(["upstream/googletest/include/gtest/internal/*.h"]) + [
         "upstream/googletest/src/gtest-death-test.cc",
         "upstream/googletest/src/gtest-filepath.cc",
+        "upstream/googletest/src/gtest-internal-inl.h",
         "upstream/googletest/src/gtest-port.cc",
         "upstream/googletest/src/gtest-printers.cc",
         "upstream/googletest/src/gtest-test-part.cc",

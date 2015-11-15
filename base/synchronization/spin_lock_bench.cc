@@ -1,10 +1,10 @@
 #include "benchmark/benchmark.h"
 
-#include "uarch/cache.h"
+#include "base/cache.h"
 
-#include "synchronization/mcs.h"
-#include "synchronization/tas.h"
-#include "synchronization/ticket.h"
+#include "base/synchronization/mcs.h"
+#include "base/synchronization/tas.h"
+#include "base/synchronization/ticket.h"
 
 const int kNumCriticalSections = 10000000;
 

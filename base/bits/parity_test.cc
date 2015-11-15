@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "bits/parity.h"
+#include "base/bits/parity.h"
 
 TEST(ParityTest, ResultsAreSame) {
   EXPECT_EQ(parity(0xF0F0F0F0), parity_scan(0xF0F0F0F0));

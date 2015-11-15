@@ -1,5 +1,5 @@
-#ifndef COMPILER_H
-#define COMPILER_H
+#ifndef BASE_COMPILER_H
+#define BASE_COMPILER_H
 
 #if !defined(__GNUC__)
 #error Please add support for your compiler in compiler.h
@@ -87,4 +87,4 @@
 #define likely(x)       __builtin_expect(!!(x), 1)
 #define unlikely(x)     __builtin_expect(!!(x), 0)
 
-#endif  // COMPILER_H
+#endif /* BASE_COMPILER_H */

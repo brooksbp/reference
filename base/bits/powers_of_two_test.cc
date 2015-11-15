@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "bits/powers_of_two.h"
+#include "base/bits/powers_of_two.h"
 
 TEST(PowersOfTwoTest, floor2) {
   EXPECT_EQ(0, floor2(0));

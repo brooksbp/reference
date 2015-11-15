@@ -1,6 +1,6 @@
 #include "benchmark/benchmark.h"
 
-#include "bits/popcount.h"
+#include "base/bits/popcount.h"
 
 static const int x = 0xF0F0F0F0;
 

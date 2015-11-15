@@ -1,9 +1,9 @@
-#ifndef RANDOM_RDRAND_H
-#define RANDOM_RDRAND_H
+#ifndef BASE_RDRAND_H
+#define BASE_RDRAND_H
 
 #include <stdint.h>
 
-int rdrand16(uint16_t *random)
+static inline int rdrand16(uint16_t *random)
 {
 	unsigned char err;
 
@@ -12,7 +12,7 @@ int rdrand16(uint16_t *random)
 	return (int) err;
 }
 
-int rdrand32(uint32_t *random)
+static inline int rdrand32(uint32_t *random)
 {
 	unsigned char err;
 
@@ -21,7 +21,7 @@ int rdrand32(uint32_t *random)
 	return (int) err;
 }
 
-int rdrand64(uint64_t *random)
+static inline int rdrand64(uint64_t *random)
 {
 	unsigned char err;
 
@@ -30,4 +30,4 @@ int rdrand64(uint64_t *random)
 	return (int) err;
 }
 
-#endif  // RANDOM_RDRAND_H
+#endif /* BASE_RDRAND_H */

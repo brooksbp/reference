@@ -1,17 +1,14 @@
 #include "benchmark/benchmark.h"
 
-#include "random/rdrand.h"
-
-static void clobber() {
-  asm volatile("" : : : "memory");
-}
+#include "base/compiler.h"
+#include "base/rdrand.h"
 
 static void bench_rdrand(benchmark::State& state) {
   uint64_t n;
   int success = 1;
   while (state.KeepRunning() && success) {
     success = rdrand64(&n);
-    clobber();
+    barrier();
   }
   state.SetItemsProcessed(state.iterations());
 }

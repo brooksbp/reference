@@ -8,6 +8,8 @@ cc_library(
         "upstream/src/gflags.cc",
         "upstream/src/gflags_completions.cc",
         "upstream/src/gflags_reporting.cc",
+        "upstream/src/mutex.h",
+        "upstream/src/util.h",
     ],
     hdrs = [
         "build/include/gflags/gflags_completions.h",
