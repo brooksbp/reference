@@ -5,21 +5,15 @@ test_suite(
 )
 
 cc_library(
-    name = "spin_lock",
-    srcs = [
-        "mcs.h",
-        "tas.h",
-        "ticket.h",
-    ],
-    linkopts = [
-        "-lm",
-    ],
-)
-
-cc_library(
     name = "synchronization",
     srcs = [
         "lock.h",
+        "spin_lock_mcs.h",
+        "spin_lock_tas.h",
+        "spin_lock_ticket.h",
+    ],
+    linkopts = [
+        "-lm",
     ],
     deps = [
         "//base",
@@ -40,8 +34,7 @@ cc_binary(
     name = "spin_lock_bench",
     srcs = ["spin_lock_bench.cc"],
     deps = [
-        ":spin_lock",
-        "//base",
+        ":synchronization",
         "//third_party/benchmark"
     ],
 )

@@ -2,9 +2,9 @@
 
 #include "base/cache.h"
 
-#include "base/synchronization/mcs.h"
-#include "base/synchronization/tas.h"
-#include "base/synchronization/ticket.h"
+#include "base/synchronization/spin_lock_mcs.h"
+#include "base/synchronization/spin_lock_tas.h"
+#include "base/synchronization/spin_lock_ticket.h"
 
 const int kNumCriticalSections = 10000000;
 
