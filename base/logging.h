@@ -10,6 +10,14 @@
 extern "C" {
 #endif
 
+#undef LOG_INFO
+#undef LOG_WARNING
+#undef LOG_ERROR
+#undef LOG_FATAL
+#undef LOG_IF
+#undef CHECK
+#undef DCHECK
+
 #define LOG_INFO(format, ...) \
 	emit_msg(LOG_SEVERITY_INFO, __FILENAME__, __LINE__, format, ##__VA_ARGS__)
 #define LOG_WARNING(format, ...) \
@@ -25,17 +33,11 @@ extern "C" {
 #define CHECK(condition) \
 	LOG_IF(LOG_SEVERITY_FATAL, unlikely(!(condition)), "Check failed: " #condition)
 
-
 #ifndef NDEBUG
-
 #define DCHECK(condition) CHECK(condition)
-
-#else /* NDEBUG */
-
-#define DCHECK(condition)
-
-#endif /* NDEBUG */
-
+#else
+#define DCHECK(condition) (true) ? (void) 0 : CHECK(condition)
+#endif
 
 
 #define __FILENAME__ \
@@ -49,7 +51,7 @@ enum {
 	LOG_SEVERITY_NUM_SEVERITIES = 4,
 };
 
-void emit_msg(int severity, char *filename, int line, char *format, ...);
+void emit_msg(int severity, const char *filename, int line, const char *format, ...);
 
 #ifdef __cplusplus
 }

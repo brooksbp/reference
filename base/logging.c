@@ -10,7 +10,7 @@ const char* const log_severity_names[LOG_SEVERITY_NUM_SEVERITIES] = {
 	"INFO", "WARNING", "ERROR", "FATAL"
 };
 
-void emit_msg(int severity, char *filename, int line, char *format, ...)
+void emit_msg(int severity, const char *filename, int line, const char *format, ...)
 {
 	struct time now = time_now();
 	struct time_exploded exploded;
