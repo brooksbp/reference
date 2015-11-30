@@ -42,7 +42,9 @@
 #define __aligned(x)         __attribute__((aligned(x)))
 #define __printf(a, b)       __attribute__((format(printf, a, b)))
 #define __scanf(a, b)        __attribute__((format(scanf, a, b)))
+#ifndef __attribute_const__
 #define __attribute_const__  __attribute__((__const__))
+#endif
 #define __maybe_unused       __attribute__((unused))
 #define __always_unused      __attribute__((unused))
 
