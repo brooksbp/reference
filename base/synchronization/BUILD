@@ -16,6 +16,26 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "synchronization",
+    srcs = [
+        "lock.h",
+    ],
+    deps = [
+        "//base",
+        "//base/threading",
+    ],
+)
+
+cc_test(
+    name = "lock_test",
+    srcs = ["lock_test.cc"],
+    deps = [
+        ":synchronization",
+        "//third_party/googletest:gtest_main",
+    ],
+)
+
 cc_binary(
     name = "spin_lock_bench",
     srcs = ["spin_lock_bench.cc"],
