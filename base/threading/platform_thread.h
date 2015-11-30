@@ -50,9 +50,9 @@ void platform_thread_yield()
 }
 
 static inline
-void platform_thread_sleep(int seconds)
+void platform_thread_sleep_ms(int milliseconds)
 {
-	sleep(seconds);
+	usleep(milliseconds * 1000);
 }
 
 int platform_thread_create_with_priority(
