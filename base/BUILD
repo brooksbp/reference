@@ -6,10 +6,20 @@ cc_library(
         "cache.h",
         "compiler.h",
         "compile_time_macros.h",
+        "logging.h",
+        "logging.c",
         "prefetch.h",
         "rdrand.h",
+        "time.h",
+        "time.c",
         "types.h",
     ],
+)
+
+cc_test(
+    name = "logging_test",
+    srcs = ["logging_test.c"],
+    deps = [":base"]
 )
 
 cc_binary(

@@ -28,7 +28,9 @@
  */
 #define barrier_data(ptr) __asm__ __volatile__("": :"r"(ptr) :"memory")
 
+#ifndef __always_inline
 #define __always_inline inline __attribute__((always_inline))
+#endif
 #define noinline        __attribute__((noinline))
 
 #define __deprecated    __attribute__((deprecated))
