@@ -1,5 +1,7 @@
 #include "base/time.h"
 
+#include "base/logging.h"
+
 static uint64_t convert_timespec_to_nanos(struct timespec *ts)
 {
 	uint64_t result = ts->tv_sec;
