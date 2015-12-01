@@ -35,10 +35,17 @@ extern "C" {
 
 #ifndef NDEBUG
 #define DCHECK(condition) CHECK(condition)
+#define DCHECK_EQ(c1, c2) CHECK((c1) == (c2))
 #else
 #define DCHECK(condition) (true) ? (void) 0 : CHECK(condition)
+#define DCHECK_EQ(c1, c2) (true) ? (void) 0 : CHECK((c1) == (c2))
 #endif
 
+#if defined(NDEBUG)
+#define NOTREACHED() LOG_ERROR("NOTREACHED() hit in %s", __FUNCTION__)
+#else
+#define NOTREACHED() DCHECK(false)
+#endif
 
 #define __FILENAME__ \
 	(strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
