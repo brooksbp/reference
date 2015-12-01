@@ -1,5 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
+test_suite(
+    name = "all_tests",
+)
+
 cc_library(
     name = "base",
     srcs = [
@@ -10,6 +14,8 @@ cc_library(
         "logging.c",
         "prefetch.h",
         "rdrand.h",
+        "string_util.h",
+        "string_util.c",
         "time.h",
         "time.c",
         "types.h",
@@ -20,6 +26,15 @@ cc_test(
     name = "logging_test",
     srcs = ["logging_test.c"],
     deps = [":base"]
+)
+
+cc_test(
+    name = "string_util_test",
+    srcs = ["string_util_test.cc"],
+    deps = [
+        ":base",
+        "//third_party/googletest:gtest_main",
+    ],
 )
 
 cc_binary(
