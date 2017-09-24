@@ -11,6 +11,12 @@ extern "C" {
 #endif
 
 static inline
+char *string_append(const char *a, const char *b)
+{	
+
+}
+
+static inline
 bool is_empty(const char *str)
 {
 	return 0 == strlen(str);

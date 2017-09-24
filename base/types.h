@@ -1,9 +1,12 @@
 #ifndef BASE_TYPES_H
 #define BASE_TYPES_H
 
+#define __USE_LARGEFILE64  /* struct stat64 */
+
 #include <limits.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <sys/types.h>
 
 #include <errno.h>
 #include <pthread.h>

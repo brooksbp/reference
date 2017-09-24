@@ -1,6 +1,8 @@
 #include "base/compile_time_macros.h"
 #include "base/string_util.h"
 
+#include <stdio.h>
+
 char *string_copy_to_lower_ascii(const char *str)
 {
 	char *result = malloc(strlen(str) + 1);

@@ -38,3 +38,11 @@ cc_binary(
         "//third_party/benchmark"
     ],
 )
+
+cc_binary(
+    name = "atomic_bench",
+    srcs = ["atomic_bench.cc"],
+    deps = [
+        "//third_party/benchmark"
+    ],
+)
